@@ -13,12 +13,12 @@ public class PlayerMovement : MonoBehaviour
     public string right = "d";
     public string backward = "s";
 
-    public void setControlP2()
+    public void setControl(string f,string l,string r,string b)
     {
-        forward = "up";
-        left = "left";
-        right = "right";
-        backward = "down";
+        forward = f;
+        left = l;
+        right = r;
+        backward = b;
     }
 
     public void testoo()

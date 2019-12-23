@@ -21,11 +21,13 @@ public class StageManager : MonoBehaviour
     public GameObject p4;
 
     public PlayerMovement p1m;
-
+    public PlayerMovement p2m;
+    public PlayerMovement p3m;
+    public PlayerMovement p4m;
 
     void Start()
     {
-        Debug.Log("Testo");
+        //Pulling Information from the Player pref void
         stageNumber = PlayerPrefs.GetInt("stageNumber", 0);
         playerCount = PlayerPrefs.GetInt("playerCount", 0);
 
@@ -34,11 +36,31 @@ public class StageManager : MonoBehaviour
         p3Char = PlayerPrefs.GetInt("p3Char", 0);
         p4Char = PlayerPrefs.GetInt("p4Char", 0);
 
-        Debug.Log(chars[1].GetType());
-        p1 = Instantiate(chars[1], new Vector3(5, 1, 5), Quaternion.identity);
-        Debug.Log("EEEE");
-        p1m = p1.GetComponent<PlayerMovement>();
-        Debug.Log(p1.GetType());
+
+        if(playerCount>=1)
+        {
+            p1 = Instantiate(chars[p1Char], new Vector3(5, 1, 5), Quaternion.identity);
+            p1m = p1.GetComponent<PlayerMovement>();
+            p1m.setControl("w","a","d","s");
+        }
+        if(playerCount>=2)
+        {
+            p2 = Instantiate(chars[p2Char], new Vector3(-5, 1, -5), Quaternion.identity);
+            p2m = p2.GetComponent<PlayerMovement>();
+            p2m.setControl("up","left","right","down");
+        }
+        if(playerCount>=3)
+        {
+            p3 = Instantiate(chars[p3Char], new Vector3(5, 1, -5), Quaternion.identity);
+            p3m = p3.GetComponent<PlayerMovement>();
+            p3m.setControl("f","c","b","v");
+        }
+        if(playerCount>=4)
+        {
+            p4 = Instantiate(chars[p4Char], new Vector3(-5, 1, 5), Quaternion.identity);
+            p4m = p4.GetComponent<PlayerMovement>();
+            p4m.setControl("u","h","k","j");
+        }
 
         //p2 = Instantiate(chars[0], new Vector3(5, 1, -5), Quaternion.identity);
 
