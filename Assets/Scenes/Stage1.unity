@@ -307,7 +307,6 @@ MonoBehaviour:
   p2Char: 0
   p3Char: 0
   p4Char: 0
-  myPrefab: {fileID: 514420509204027819, guid: 165da5fb43ac2cb48a213b8c3f48c445, type: 3}
   chars:
   - {fileID: 2279810744950554540, guid: 9af4a8a2f8a94cc4dac2a91db778d0ba, type: 3}
   - {fileID: 514420509204027819, guid: 165da5fb43ac2cb48a213b8c3f48c445, type: 3}
@@ -316,7 +315,10 @@ MonoBehaviour:
   p2: {fileID: 0}
   p3: {fileID: 0}
   p4: {fileID: 0}
-  p1m: {fileID: 0}
+  p1Mat: {fileID: 2100000, guid: da437401cadb93f429dd7df24fe08d80, type: 2}
+  p2Mat: {fileID: 2100000, guid: e5dd9141ba4e76740bdbb24bbe53ecb4, type: 2}
+  p3Mat: {fileID: 2100000, guid: 6b7826b7f1c33d542a70c0fae8d202fa, type: 2}
+  p4Mat: {fileID: 2100000, guid: dccc0792640e84c4ab85eb4e67fa686d, type: 2}
 --- !u!4 &842480326
 Transform:
   m_ObjectHideFlags: 0
