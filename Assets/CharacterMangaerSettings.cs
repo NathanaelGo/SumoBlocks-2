@@ -3,30 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using UnityEngine.SceneManagement;
 
 public class CharacterMangaerSettings : MonoBehaviour
 {
     //For Player Count (PC)
+    [Header("Player Count")]
     public Sprite[] gallery; //store all your images in here at design time
     public Image displayImage; //The current image thats visible
     public int playerCount = 0; //Will control where in the array you are
     
     //For Stage Select
+    [Header("Stage Select")]    
     public TextMeshProUGUI txt;
     public string[] stages;
-    public int StageNumber = 0;
+    public int stageNumber = 0;
 
-
-    /*
-    //List<String> charList = { "Jeff", 
-    //                       "Fatty", 
-    //                       "Speedy"};
-    int p1p = 0;
-    int p2p = 0;
-    int p3p = 0;
-    int p4p = 0;
-    */
+    //Player Character Choices
+    [Header("Players Character")]
+    public int p1Char = 0;
+    public int p2Char = 0;
+    public int p3Char = 0;
+    public int p4Char = 0;
 
 
     //Methods for buttons
@@ -48,30 +46,46 @@ public class CharacterMangaerSettings : MonoBehaviour
 
     public void BtnNextStage () 
     {
-    if(StageNumber + 1 < stages.Length)
+    if(stageNumber + 1 < stages.Length)
         {
-            StageNumber++;
+            stageNumber++;
         }
     }
 
     public void BtnPrevStage () 
     {
-        if(StageNumber - 1 >= 0)
+        if(stageNumber - 1 >= 0)
         {
-            StageNumber--;
+            stageNumber--;
         }
+    }
+
+    public void playBtn()
+    {
+        SceneManager.LoadScene(stageNumber+3); //Opens Scene for stage that corispones with stageNum [+3 is to bypass the title options and charSelect]
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+    
     }
 
     // Update is called once per frame
     void Update()
     {
         displayImage.sprite = gallery[playerCount];         //Updates player count icon and stage numver text
-        txt.text = stages[StageNumber];
+        txt.text = stages[stageNumber];
+    }
+
+    void OnDestroy()
+    {
+        PlayerPrefs.SetInt("stageNumber", stageNumber);
+        PlayerPrefs.SetInt("playerCount", playerCount);
+
+        PlayerPrefs.SetInt("p1Char", p1Char);
+        PlayerPrefs.SetInt("p2Char", p2Char);
+        PlayerPrefs.SetInt("p3Char", p3Char);
+        PlayerPrefs.SetInt("p4Char", p4Char);
     }
 }

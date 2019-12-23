@@ -13,7 +13,18 @@ public class PlayerMovement : MonoBehaviour
     public string right = "d";
     public string backward = "s";
 
+    public void setControlP2()
+    {
+        forward = "up";
+        left = "left";
+        right = "right";
+        backward = "down";
+    }
 
+    public void testoo()
+    {
+        Debug.Log("IT WORKS EEEEHEE HEE");
+    }
 
     // Start is called before the first frame update
     void Start()
