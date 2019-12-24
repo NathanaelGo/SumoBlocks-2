@@ -15,24 +15,18 @@ public class StageManager : MonoBehaviour
 
     [Header("Player Models")]
     public GameObject[] chars;
-    public GameObject p1;
-    public GameObject p2;
-    public GameObject p3;
-    public GameObject p4;
-
-
+    public GameObject[] p =  new GameObject[5];         //Player Chars                  Note Slot Zero is unused
+    
+    [Header("Player Materials")]
     public Material p1Mat;
     public Material p2Mat;
     public Material p3Mat;
     public Material p4Mat;
      
 
-    //Script holders
-    private PlayerMovement p1m;
-    private PlayerMovement p2m;
-    private PlayerMovement p3m;
-    private PlayerMovement p4m;
-
+    //Script holders for player Movement
+    private PlayerMovement[] pm = new PlayerMovement[5];  //Player movement scripts     Note Slot Zero is unused
+    
 
 
     void Start()
@@ -49,31 +43,31 @@ public class StageManager : MonoBehaviour
 
         if(playerCount>=1)
         {
-            p1 = Instantiate(chars[p1Char], new Vector3(5, 1, 5), Quaternion.identity);
-            p1m = p1.GetComponent<PlayerMovement>();
-            p1m.setControl("w","a","d","s");
-            p1.GetComponent<Renderer>().material = p1Mat;
+            p[1] = Instantiate(chars[p1Char], new Vector3(5, 1, 5), Quaternion.identity);
+            pm[1] = p[1].GetComponent<PlayerMovement>();
+            pm[1].setControl("w","a","d","s");
+            p[1].GetComponent<Renderer>().material = p1Mat;
         }
         if(playerCount>=2)
         {
-            p2 = Instantiate(chars[p2Char], new Vector3(-5, 1, -5), Quaternion.identity);
-            p2m = p2.GetComponent<PlayerMovement>();
-            p2m.setControl("up","left","right","down");
-            p2.GetComponent<Renderer>().material = p2Mat;
+            p[2] = Instantiate(chars[p2Char], new Vector3(-5, 1, -5), Quaternion.identity);
+            pm[2] = p[2].GetComponent<PlayerMovement>();
+            pm[2].setControl("up","left","right","down");
+            p[2].GetComponent<Renderer>().material = p2Mat;
         }
         if(playerCount>=3)
         {
-            p3 = Instantiate(chars[p3Char], new Vector3(5, 1, -5), Quaternion.identity);
-            p3m = p3.GetComponent<PlayerMovement>();
-            p3m.setControl("f","c","b","v");
-            p3.GetComponent<Renderer>().material = p3Mat;
+            p[3] = Instantiate(chars[p3Char], new Vector3(5, 1, -5), Quaternion.identity);
+            pm[3] = p[3].GetComponent<PlayerMovement>();
+            pm[3].setControl("f","c","b","v");
+            p[3].GetComponent<Renderer>().material = p3Mat;
         }
         if(playerCount>=4)
         {
-            p4 = Instantiate(chars[p4Char], new Vector3(-5, 1, 5), Quaternion.identity);
-            p4m = p4.GetComponent<PlayerMovement>();
-            p4m.setControl("u","h","k","j");
-            p4.GetComponent<Renderer>().material = p4Mat;
+            p[4] = Instantiate(chars[p4Char], new Vector3(-5, 1, 5), Quaternion.identity);
+            pm[4] = p[4].GetComponent<PlayerMovement>();
+            pm[4].setControl("u","h","k","j");
+            p[4].GetComponent<Renderer>().material = p4Mat;
         }
 
     }
