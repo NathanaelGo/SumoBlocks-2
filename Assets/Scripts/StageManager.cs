@@ -26,7 +26,7 @@ public class StageManager : MonoBehaviour
 
     //Script holders for player Movement
     private PlayerMovement[] pm = new PlayerMovement[5];  //Player movement scripts     Note Slot Zero is unused
-    
+
 
 
     void Start()
@@ -71,6 +71,14 @@ public class StageManager : MonoBehaviour
         }
 
     }
+
+    public void revive(int playerNum)
+    {
+        Destroy(p[playerNum]);
+        p[playerNum] = Instantiate(chars[p1Char], new Vector3(0, 3, 0), Quaternion.identity);
+        //Here p1Char to []
+    }
+    
 
     // Update is called once per frame
     void Update()

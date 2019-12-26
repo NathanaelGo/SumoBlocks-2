@@ -15,7 +15,7 @@ public class GameMode : MonoBehaviour
     void Start()
     {
         GameModeNum = PlayerPrefs.GetInt("GameModeNum", 0);
-/* START HERE TOMMOROW 
+
 
         if(GameModeNum == 0)
         {
@@ -27,7 +27,7 @@ public class GameMode : MonoBehaviour
             }
             
         }
- */        
+        
         //if(gmn == 0 ) then update stuff
     }
 

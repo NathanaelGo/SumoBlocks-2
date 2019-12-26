@@ -312,10 +312,12 @@ MonoBehaviour:
   - {fileID: 2279810744950554540, guid: 9af4a8a2f8a94cc4dac2a91db778d0ba, type: 3}
   - {fileID: 514420509204027819, guid: 165da5fb43ac2cb48a213b8c3f48c445, type: 3}
   - {fileID: 6466250829334701769, guid: 5745090bf7a5d2c4da5ddc8b54978d47, type: 3}
-  p1: {fileID: 0}
-  p2: {fileID: 0}
-  p3: {fileID: 0}
-  p4: {fileID: 0}
+  p:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   p1Mat: {fileID: 2100000, guid: da437401cadb93f429dd7df24fe08d80, type: 2}
   p2Mat: {fileID: 2100000, guid: e5dd9141ba4e76740bdbb24bbe53ecb4, type: 2}
   p3Mat: {fileID: 2100000, guid: 6b7826b7f1c33d542a70c0fae8d202fa, type: 2}
@@ -346,7 +348,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a2eedb29b44294bba244f3d59d72b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stageMangager: {fileID: 842480324}
   GameModeNum: 0
+  stocks: 0
+  pStocks: 
 --- !u!1 &2085210164
 GameObject:
   m_ObjectHideFlags: 0
