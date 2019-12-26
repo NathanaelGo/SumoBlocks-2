@@ -12,6 +12,9 @@ public class PlayerMovement : MonoBehaviour
     public string left = "a";
     public string right = "d";
     public string backward = "s";
+    public string pow1 = "e";
+    public string pow2 = "q";
+
 
     public void setControl(string f,string l,string r,string b)
     {
@@ -20,6 +23,18 @@ public class PlayerMovement : MonoBehaviour
         right = r;
         backward = b;
     }
+    
+    public void setControl(string control)
+    {
+        string[] controls = control.Split(' ');
+        forward = controls[0];
+        left = controls[1];
+        right = controls[2];
+        backward = controls[3];
+        pow1 = controls[4];
+        pow2 = controls[5];
+    }
+
 
     public void testoo()
     {
