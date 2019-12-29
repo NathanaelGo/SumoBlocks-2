@@ -39,7 +39,6 @@ public class PlayerMovement : MonoBehaviour
     public void testoo()
     {
         Debug.Log("IT WORKS EEEEHEE HEE");
-        //Test To make sure this commit works
     }
 
     // Start is called before the first frame update
