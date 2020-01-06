@@ -5,15 +5,35 @@ using UnityEngine;
 public class GameMode : MonoBehaviour
 {
 
-    public GameObject stageMangager;
+    public GameObject stageMangager;        //Stage Manager Object
+    public StageManager smScript;           //Stage Manager script
     public int GameModeNum;
     public int stocks;
     public int[] pStocks;
+    
+
+
+    public bool CharDestroyed(int charNum)
+    {
+        if(GameModeNum == 0)
+        {
+            pStocks[charNum] = pStocks[charNum] - 1;
+            if(pStocks[charNum]>0)
+                return true;
+            else
+                return false;
+                
+            
+        }
+        return true;
+    }
 
 
     // Start is called before the first frame update
     void Start()
     {
+        stageMangager = gameObject;
+        smScript = stageMangager.GetComponent<StageManager>();
         GameModeNum = PlayerPrefs.GetInt("GameModeNum", 0);
 
 

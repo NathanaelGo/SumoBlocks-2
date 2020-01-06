@@ -20,17 +20,16 @@ public class StageManager : MonoBehaviour
 
     [Header("Player Materials")]
     public Material[] pMat;
-    public Material p1Mat;
-    public Material p2Mat;
-    public Material p3Mat;
-    public Material p4Mat;
+    //public Material p1Mat;
+    //public Material p2Mat;
+    //public Material p3Mat;
+    //public Material p4Mat;
 
      
     [Header("Other")]  
     public string[] pMoveKeys = new string[5];          //Fill and slpit the keys and use it in revive                               iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-    public bool[] playerAlive = new bool[5];
-
-
+    public GameObject stageMangager;                    //Stage Manager Object
+    public GameMode gmScript;                           //GameMode Script
     //Script holders for player Movement
     private PlayerMovement[] pm = new PlayerMovement[5];  //Player movement scripts                                 Note Slot Zero is unused
 
@@ -38,6 +37,9 @@ public class StageManager : MonoBehaviour
 
     void Start()
     {
+
+        stageMangager = gameObject;
+        gmScript = stageMangager.GetComponent<GameMode>();
         //Pulling Information from the Player pref void
         stageNumber = PlayerPrefs.GetInt("stageNumber", 0);
         playerCount = PlayerPrefs.GetInt("playerCount", 0);
@@ -60,7 +62,6 @@ public class StageManager : MonoBehaviour
             pm[1] = p[1].GetComponent<PlayerMovement>();
             pm[1].setControl(pMoveKeys[1]);
             p[1].GetComponent<Renderer>().material = pMat[1];
-            playerAlive[1] = true;
         }
         if(playerCount>=2)
         {
@@ -68,7 +69,6 @@ public class StageManager : MonoBehaviour
             pm[2] = p[2].GetComponent<PlayerMovement>();
             pm[2].setControl(pMoveKeys[2]);
             p[2].GetComponent<Renderer>().material = pMat[2];
-            playerAlive[2] = true;
         }
         if(playerCount>=3)
         {
@@ -76,7 +76,6 @@ public class StageManager : MonoBehaviour
             pm[3] = p[3].GetComponent<PlayerMovement>();
             pm[3].setControl(pMoveKeys[3]);
             p[3].GetComponent<Renderer>().material = pMat[3];
-            playerAlive[3] = true;
         }
         if(playerCount>=4)
         {
@@ -84,7 +83,6 @@ public class StageManager : MonoBehaviour
             pm[4] = p[4].GetComponent<PlayerMovement>();
             pm[4].setControl(pMoveKeys[4]);
             p[4].GetComponent<Renderer>().material = pMat[4];
-            playerAlive[4] = true;
         }
 
     }
@@ -104,10 +102,12 @@ public class StageManager : MonoBehaviour
     {
         for(int i = 1; i<=4; i++)
         {
-            if(playerAlive[i] == true && p[i].transform.position.y<-10)
+            if(!(p[i]==null) && p[i].transform.position.y<-10)
             {
-                Debug.Log("It Workos");
-                revive(i);
+                if(gmScript.CharDestroyed(i))                       //Checks to see if it need to revive (handled by the gamemode script)
+                    revive(i);
+                else
+                    Destroy(p[i]);
             }
         }
     }
