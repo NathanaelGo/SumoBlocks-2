@@ -318,10 +318,23 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  pChar: 0000000000000000000000000000000000000000
+  pMat:
+  - {fileID: 2100000, guid: 6ca08ef5374616f49a4f1e85c18d6f37, type: 2}
+  - {fileID: 2100000, guid: da437401cadb93f429dd7df24fe08d80, type: 2}
+  - {fileID: 2100000, guid: e5dd9141ba4e76740bdbb24bbe53ecb4, type: 2}
+  - {fileID: 2100000, guid: 6b7826b7f1c33d542a70c0fae8d202fa, type: 2}
+  - {fileID: 2100000, guid: dccc0792640e84c4ab85eb4e67fa686d, type: 2}
   p1Mat: {fileID: 2100000, guid: da437401cadb93f429dd7df24fe08d80, type: 2}
   p2Mat: {fileID: 2100000, guid: e5dd9141ba4e76740bdbb24bbe53ecb4, type: 2}
   p3Mat: {fileID: 2100000, guid: 6b7826b7f1c33d542a70c0fae8d202fa, type: 2}
   p4Mat: {fileID: 2100000, guid: dccc0792640e84c4ab85eb4e67fa686d, type: 2}
+  pMoveKeys:
+  - 
+  - 
+  - 
+  - 
+  - 
 --- !u!4 &842480326
 Transform:
   m_ObjectHideFlags: 0
