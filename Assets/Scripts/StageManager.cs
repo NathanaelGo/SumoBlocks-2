@@ -13,21 +13,19 @@ public class StageManager : MonoBehaviour
     public int p3Char;
     public int p4Char;
 
+
     [Header("Player Models")]
     public GameObject[] chars;                          //Array of the different charcters
     public GameObject[] p =  new GameObject[5];         //Player Chararacters                                       Note Slot Zero is unused
     public int[] pChar = new int[5];                    //Int representing the which character the player picked    Note Slot Zero is unused
 
+
     [Header("Player Materials")]
     public Material[] pMat;
-    //public Material p1Mat;
-    //public Material p2Mat;
-    //public Material p3Mat;
-    //public Material p4Mat;
 
      
     [Header("Other")]  
-    public string[] pMoveKeys = new string[5];          //Fill and slpit the keys and use it in revive                               iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+    public string[] pMoveKeys = new string[5];          //Fill and slpit the keys and use it in revive                            
     public GameObject stageMangager;                    //Stage Manager Object
     public GameMode gmScript;                           //GameMode Script
     //Script holders for player Movement

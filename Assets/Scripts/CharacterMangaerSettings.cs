@@ -19,6 +19,10 @@ public class CharacterMangaerSettings : MonoBehaviour
     public string[] stages;
     public int stageNumber = 0;
 
+    //For GameMode
+    public int gameModeNum;
+    public int stockCount;
+
     //Player Character Choices
     [Header("Players Character")]
     public int p1Char = 0;
@@ -87,5 +91,17 @@ public class CharacterMangaerSettings : MonoBehaviour
         PlayerPrefs.SetInt("p2Char", p2Char);
         PlayerPrefs.SetInt("p3Char", p3Char);
         PlayerPrefs.SetInt("p4Char", p4Char);
+        
+        if(gameModeNum == 0)
+        {
+            if(stockCount == null || stockCount == 0)
+                stockCount = 3;
+
+            PlayerPrefs.SetInt("Stocks", stockCount);
+        }
+        else                                                //Holder Will be changed in the future
+        {
+            PlayerPrefs.SetInt("Stocks", 1);
+        }
     }
 }
