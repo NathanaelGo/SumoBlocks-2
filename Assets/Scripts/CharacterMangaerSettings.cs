@@ -15,13 +15,16 @@ public class CharacterMangaerSettings : MonoBehaviour
     
     //For Stage Select
     [Header("Stage Select")]    
-    public TextMeshProUGUI txt;
+    public TextMeshProUGUI stageSelectTxt;
     public string[] stages;
     public int stageNumber = 0;
 
     //For GameMode
+    [Header("Game Mode")]
+    public TextMeshProUGUI gameModeSelectTxt;
     public int gameModeNum;
     public int stockCount;
+    public string[] gameModeTypeNames;
 
     //Player Character Choices
     [Header("Players Character")]
@@ -32,9 +35,10 @@ public class CharacterMangaerSettings : MonoBehaviour
 
 
     //Methods for buttons
+    //Player Count Buttons
     public void BtnNextPC () 
     {
-    if(playerCount + 1 < gallery.Length)
+        if(playerCount + 1 < gallery.Length)
         {
             playerCount++;
         }
@@ -48,9 +52,10 @@ public class CharacterMangaerSettings : MonoBehaviour
         }
     }
 
+    //Stage select buttons
     public void BtnNextStage () 
     {
-    if(stageNumber + 1 < stages.Length)
+        if(stageNumber + 1 < stages.Length)
         {
             stageNumber++;
         }
@@ -64,10 +69,29 @@ public class CharacterMangaerSettings : MonoBehaviour
         }
     }
 
+        //GameMode buttons
+        public void BtnNextGM () 
+    {
+        if(gameModeNum + 1 < gameModeTypeNames.Length)
+        {
+            gameModeNum++;
+        }
+    }
+
+    public void BtnPrevGM () 
+    {
+        if(gameModeNum - 1 >= 0)
+        {
+            gameModeNum--;
+        }
+    }
+
     public void playBtn()
     {
         SceneManager.LoadScene(stageNumber+3); //Opens Scene for stage that corispones with stageNum [+3 is to bypass the title options and charSelect]
     }
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -79,7 +103,8 @@ public class CharacterMangaerSettings : MonoBehaviour
     void Update()
     {
         displayImage.sprite = gallery[playerCount];         //Updates player count icon and stage numver text
-        txt.text = stages[stageNumber];
+        stageSelectTxt.text = stages[stageNumber];
+        gameModeSelectTxt.text = gameModeTypeNames[gameModeNum];
     }
 
     void OnDestroy()
