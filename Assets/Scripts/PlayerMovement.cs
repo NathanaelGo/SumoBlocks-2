@@ -6,14 +6,22 @@ public class PlayerMovement : MonoBehaviour
 {
     public Rigidbody rbmain;
     
+    [Header("Character Values")]
     public float MaxSpeed = 200f;
     public float MaxTorque = 1f;
+
+    [Header("Movement Keys")]
     public string forward = "w";
     public string left = "a";
     public string right = "d";
     public string backward = "s";
     public string pow1 = "e";
     public string pow2 = "q";
+
+    [Header("Others")]
+    public GameObject sm;
+    public PlayerPowers pp;
+    
 
 
     public void setControl(string f,string l,string r,string b)
@@ -44,7 +52,10 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        sm = GameObject.Find("StageManager");
+        pp = sm.GetComponent<PlayerPowers>();
+
+        Debug.Log(gameObject);
     }
 
     // Update is called once per frame
@@ -66,5 +77,14 @@ public class PlayerMovement : MonoBehaviour
         {
             rbmain.AddForce(0, 0, -MaxSpeed * Time.deltaTime);
         }
+        if (Input.GetKey(pow1))
+        {
+            //rbmain.AddForce(0, 0, -MaxSpeed * Time.deltaTime);
+        }
+        if (Input.GetKey(pow2))
+        {
+            //rbmain.AddForce(0, 0, -MaxSpeed * Time.deltaTime);
+        }
+        
     }
 }

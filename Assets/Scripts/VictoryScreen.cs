@@ -1,4 +1,4 @@
-﻿using System.Collections;
+﻿ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -20,7 +20,10 @@ public class VictoryScreen : MonoBehaviour
     void Start()
     {
         winnerNum = PlayerPrefs.GetInt("Winner", 0);
-        WinnerTxt.text = string.Format("Player {0} Wins!!!",winnerNum);
+        if(winnerNum != 0)
+            WinnerTxt.text = string.Format("Player {0} Wins!!!",winnerNum);
+        else
+            WinnerTxt.text = "TIE!";       
     }
 
     // Update is called once per frame
