@@ -9,7 +9,16 @@ public class PlayerPowers : MonoBehaviour
     {
         //Debug.Log(charType);
         if(charType == 3)
+        {
             player.GetComponent<Rigidbody>().angularVelocity = player.GetComponent<Rigidbody>().angularVelocity + new Vector3(0,(float)-.05,0);
+        }
+        else if(charType == 4)
+        {
+            Rigidbody scoreBall = player.GetComponent<Rigidbody>();
+            Debug.Log(scoreBall.velocity.ToString());
+            scoreBall.velocity = scoreBall.velocity*3/2;
+            
+        }
         //Debug.Log(player.GetComponent<Rigidbody>().angularVelocity);
 
     }
@@ -19,6 +28,7 @@ public class PlayerPowers : MonoBehaviour
         //Debug.Log(player);
         if(charType == 3)
             player.GetComponent<Rigidbody>().angularVelocity = player.GetComponent<Rigidbody>().angularVelocity + new Vector3(0,(float).05,0);
+
         //Debug.Log(player.GetComponent<Rigidbody>().angularVelocity);
         
         //player.GetComponent<Rigidbody>().AddTorque(transform.up * torque * turn);

@@ -1,0 +1,4 @@
+-Fix problem with power not working after life one (Something to do with getting the new Rigid Body I think)
+-Character Select
+-New Stages
+-Score TB power needs a cool down
