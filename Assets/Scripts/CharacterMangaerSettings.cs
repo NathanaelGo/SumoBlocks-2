@@ -109,7 +109,7 @@ public class CharacterMangaerSettings : MonoBehaviour
 
     public void playBtn()
     {
-        SceneManager.LoadScene(stageNumber+3); //Opens Scene for stage that corispones with stageNum [+3 is to bypass the title options and charSelect]
+        SceneManager.LoadScene(stageNumber+4); //Opens Scene for stage that corispones with stageNum [+4 is to bypass the title options charSelect and winner screen]
     }
 
 
@@ -154,5 +154,5 @@ public class CharacterMangaerSettings : MonoBehaviour
         {
             PlayerPrefs.SetInt("Stocks", 1);
         }
-    }
+    } 
 }

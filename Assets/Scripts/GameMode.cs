@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class GameMode : MonoBehaviour
 {
@@ -24,13 +26,19 @@ public class GameMode : MonoBehaviour
                 return true;
             else
             {
-                if(playersLeftAlive().Length == 1)      //Returns the player number of the last person alive
+                if(playersLeftAlive().Length == 1)                          //Returns the player number of the last person alive
                 {
                     Debug.Log(playersLeftAlive()[0]);
+
+                    PlayerPrefs.SetInt("Winner", playersLeftAlive()[0]);    //Sets the winner as the last player alive
+                    SceneManager.LoadScene(3);                              //Opens Victory Scene
                 }
-                else if(playersLeftAlive().Length == 0) //If players die at the exact same time
+                else if(playersLeftAlive().Length == 0)                     //If players die at the exact same time
                 {
                     Debug.Log("TIE");
+
+                    PlayerPrefs.SetInt("Winner", 0);                        //Sets the winner as 0 [Indicates a tie]
+                    SceneManager.LoadScene(3);                              //Opens Victory Scene
                 }
                 return false;
             }   
