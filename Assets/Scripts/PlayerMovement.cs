@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody rbmain;
     
     [Header("Character Values")]
+    public int charNum;
     public float MaxSpeed = 200f;
     public float MaxTorque = 1f;
 
@@ -23,6 +24,10 @@ public class PlayerMovement : MonoBehaviour
     public PlayerPowers pp;
     
 
+    public void setChar(int charNumber)
+    {
+        charNum = charNumber;
+    }
 
     public void setControl(string f,string l,string r,string b)
     {
@@ -79,11 +84,11 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKey(pow1))
         {
-            //rbmain.AddForce(0, 0, -MaxSpeed * Time.deltaTime);
+            pp.power1(gameObject,charNum);
         }
         if (Input.GetKey(pow2))
         {
-            //rbmain.AddForce(0, 0, -MaxSpeed * Time.deltaTime);
+            pp.power2(gameObject,charNum);
         }
         
     }

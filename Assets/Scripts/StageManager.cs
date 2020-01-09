@@ -56,9 +56,10 @@ public class StageManager : MonoBehaviour
 
         if(playerCount>=1)
         {
-            p[1] = Instantiate(chars[pChar[1]], new Vector3(5, 1, 5), Quaternion.identity);
+            p[1] = Instantiate(chars[pChar[1]], new Vector3(5, 1, 5), Quaternion.identity);     
             pm[1] = p[1].GetComponent<PlayerMovement>();
             pm[1].setControl(pMoveKeys[1]);
+            pm[1].setChar(pChar[1]);
             p[1].GetComponent<Renderer>().material = pMat[1];
         }
         if(playerCount>=2)
@@ -66,6 +67,7 @@ public class StageManager : MonoBehaviour
             p[2] = Instantiate(chars[pChar[2]], new Vector3(-5, 1, -5), Quaternion.identity);
             pm[2] = p[2].GetComponent<PlayerMovement>();
             pm[2].setControl(pMoveKeys[2]);
+            pm[2].setChar(pChar[2]);
             p[2].GetComponent<Renderer>().material = pMat[2];
         }
         if(playerCount>=3)
@@ -73,6 +75,7 @@ public class StageManager : MonoBehaviour
             p[3] = Instantiate(chars[pChar[3]], new Vector3(5, 1, -5), Quaternion.identity);
             pm[3] = p[3].GetComponent<PlayerMovement>();
             pm[3].setControl(pMoveKeys[3]);
+            pm[3].setChar(pChar[3]);
             p[3].GetComponent<Renderer>().material = pMat[3];
         }
         if(playerCount>=4)
@@ -80,6 +83,7 @@ public class StageManager : MonoBehaviour
             p[4] = Instantiate(chars[pChar[4]], new Vector3(-5, 1, 5), Quaternion.identity);
             pm[4] = p[4].GetComponent<PlayerMovement>();
             pm[4].setControl(pMoveKeys[4]);
+            pm[4].setChar(pChar[4]);
             p[4].GetComponent<Renderer>().material = pMat[4];
         }
 

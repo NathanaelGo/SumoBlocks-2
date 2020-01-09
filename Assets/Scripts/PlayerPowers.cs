@@ -7,12 +7,21 @@ public class PlayerPowers : MonoBehaviour
 
     public void power1(GameObject player, int charType)
     {
+        //Debug.Log(charType);
+        if(charType == 3)
+            player.GetComponent<Rigidbody>().angularVelocity = player.GetComponent<Rigidbody>().angularVelocity + new Vector3(0,(float)-.05,0);
+        //Debug.Log(player.GetComponent<Rigidbody>().angularVelocity);
 
     }
 
     public void power2(GameObject player, int charType)
     {
-
+        //Debug.Log(player);
+        if(charType == 3)
+            player.GetComponent<Rigidbody>().angularVelocity = player.GetComponent<Rigidbody>().angularVelocity + new Vector3(0,(float).05,0);
+        //Debug.Log(player.GetComponent<Rigidbody>().angularVelocity);
+        
+        //player.GetComponent<Rigidbody>().AddTorque(transform.up * torque * turn);
     }
     
     // Start is called before the first frame update
