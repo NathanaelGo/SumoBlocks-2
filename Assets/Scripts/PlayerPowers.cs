@@ -14,10 +14,14 @@ public class PlayerPowers : MonoBehaviour
         }
         else if(charType == 4)
         {
-            Rigidbody scoreBall = player.GetComponent<Rigidbody>();
-            Debug.Log(scoreBall.velocity.ToString());
-            scoreBall.velocity = scoreBall.velocity*3/2;
-            
+            PlayerMovement pm = player.GetComponent<PlayerMovement>();
+            if(Time.time>=pm.cd1Counter)
+            {
+                Rigidbody scoreBall = player.GetComponent<Rigidbody>();
+                Debug.Log(scoreBall.velocity.ToString());
+                scoreBall.velocity = scoreBall.velocity*3/2;            //Increases velocity by 50%
+                pm.cd1Counter = pm.cd1Counter + 10;                      //Cooldown of 10 secs
+            }
         }
         //Debug.Log(player.GetComponent<Rigidbody>().angularVelocity);
 
@@ -27,8 +31,20 @@ public class PlayerPowers : MonoBehaviour
     {
         //Debug.Log(player);
         if(charType == 3)
+        {
             player.GetComponent<Rigidbody>().angularVelocity = player.GetComponent<Rigidbody>().angularVelocity + new Vector3(0,(float).05,0);
-
+        }
+        else if(charType == 4)
+        {   
+            PlayerMovement pm = player.GetComponent<PlayerMovement>();
+            if(Time.time>=pm.cd2Counter)
+            {
+                Rigidbody scoreBall = player.GetComponent<Rigidbody>();
+                Debug.Log(scoreBall.velocity.ToString());
+                scoreBall.velocity = scoreBall.velocity*0;              //Stops velocity
+                pm.cd2Counter = pm.cd2Counter + 7;                      //Cooldown of 7 secs
+            }
+        }
         //Debug.Log(player.GetComponent<Rigidbody>().angularVelocity);
         
         //player.GetComponent<Rigidbody>().AddTorque(transform.up * torque * turn);

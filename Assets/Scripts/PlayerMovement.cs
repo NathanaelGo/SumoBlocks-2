@@ -22,6 +22,13 @@ public class PlayerMovement : MonoBehaviour
     [Header("Others")]
     public GameObject sm;
     public PlayerPowers pp;
+
+    public float cooldown1 = 5;
+    public float cooldown2 = 5;
+    
+    public float cd1Counter;
+    public float cd2Counter;
+    
     
 
     public void setChar(int charNumber)
@@ -60,6 +67,9 @@ public class PlayerMovement : MonoBehaviour
         sm = GameObject.Find("StageManager");
         pp = sm.GetComponent<PlayerPowers>();
 
+        cd1Counter = Time.time;
+        cd2Counter = Time.time;
+        
         Debug.Log(gameObject);
     }
 

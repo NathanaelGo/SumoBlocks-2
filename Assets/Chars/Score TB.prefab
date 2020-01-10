@@ -107,7 +107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rbmain: {fileID: 8294101540404068578}
   charNum: 0
-  MaxSpeed: 175
+  MaxSpeed: 170
   MaxTorque: 1
   forward: w
   left: a
@@ -117,6 +117,10 @@ MonoBehaviour:
   pow2: q
   sm: {fileID: 0}
   pp: {fileID: 0}
+  cooldown1: 5
+  cooldown2: 5
+  cd1Counter: 0
+  cd2Counter: 0
 --- !u!54 &8294101540404068578
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -125,7 +129,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8294101540404068589}
   serializedVersion: 2
-  m_Mass: 1.75
+  m_Mass: 1.7
   m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
