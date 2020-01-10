@@ -95,6 +95,7 @@ public class StageManager : MonoBehaviour
         p[playerNum] = Instantiate(chars[pChar[playerNum]], new Vector3(0, 3, 0), Quaternion.identity);     //Creates a new model
         pm[playerNum] = p[playerNum].GetComponent<PlayerMovement>();                                        //Fetches the new playermovement script
         pm[playerNum].setControl(pMoveKeys[playerNum]);                                                     //Readds the new movement 
+        pm[playerNum].setChar(pChar[playerNum]);                                                            //Readds the playerNum to the pm script for the abilty calculation
         p[playerNum].GetComponent<Renderer>().material = pMat[playerNum];                                   //Readds Color
     }
     
