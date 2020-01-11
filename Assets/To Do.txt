@@ -3,5 +3,6 @@
   -2in1
   -Jumpy
   -Moony
+-Respawn Invincibility 
 -New Stages
 -Char Info Page
