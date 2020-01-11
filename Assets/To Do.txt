@@ -1,4 +1,7 @@
--Fix problem with power not working after life one (Something to do with getting the new Rigid Body I think)
--Character Select
+-New Chars
+  -Changey
+  -2in1
+  -Jumpy
+  -Moony
 -New Stages
--Score TB power needs a cool down
+-Char Info Page

@@ -33,10 +33,14 @@ public class CharacterMangaerSettings : MonoBehaviour
 
     //Player Character Choices
     [Header("Players Character")]
-    public int p1Char = 0;
-    public int p2Char = 0;
-    public int p3Char = 0;
-    public int p4Char = 0;
+
+
+    public int[] pChar = new int[5];
+    public string[] charNames;
+    public TextMeshProUGUI[] playerCharDisplayer;   //Used in displaying the current name of the character the player is going to play
+    public TextMeshProUGUI[] playerNumDisplayer;    //Used in making the different player names dissapear
+    
+
 
 
     //Methods for buttons
@@ -46,6 +50,7 @@ public class CharacterMangaerSettings : MonoBehaviour
         if(playerCount + 1 < gallery.Length)
         {
             playerCount++;
+            setPlayerActive();
         }
     }
 
@@ -54,6 +59,7 @@ public class CharacterMangaerSettings : MonoBehaviour
         if(playerCount - 1 > 0)
         {
             playerCount--;
+            setPlayerUnActive();
         }
     }
 
@@ -107,17 +113,94 @@ public class CharacterMangaerSettings : MonoBehaviour
         }
     }
 
+    //Character Select Buttons
+
+    public void BtnNextChar1 () 
+    {
+        if(pChar[1] + 1 < charNames.Length)
+        {
+            pChar[1]++;
+        }
+    }
+
+    public void BtnPrevChar1 () 
+    {
+        if(pChar[1] - 1 >= 0)
+        {
+            pChar[1]--;
+        }
+    }
+
+        public void BtnNextChar2 () 
+    {
+        if(pChar[2] + 1 < charNames.Length)
+        {
+            pChar[2]++;
+        }
+    }
+
+    public void BtnPrevChar2 () 
+    {
+        if(pChar[2] - 1 >= 0)
+        {
+            pChar[2]--;
+        }
+    }
+
+    public void BtnNextChar3 () 
+    {
+        if(pChar[3] + 1 < charNames.Length)
+        {
+            pChar[3]++;
+        }
+    }
+
+    public void BtnPrevChar3 () 
+    {
+        if(pChar[3] - 1 >= 0)
+        {
+            pChar[3]--;
+        }
+    }
+
+    public void BtnNextChar4 () 
+    {
+        if(pChar[4] + 1 < charNames.Length)
+        {
+            pChar[4]++;
+        }
+    }
+
+    public void BtnPrevChar4 () 
+    {
+        if(pChar[4] - 1 >= 0)
+        {
+            pChar[4]--;
+        }
+    }
+
     public void playBtn()
     {
         SceneManager.LoadScene(stageNumber+4); //Opens Scene for stage that corispones with stageNum [+4 is to bypass the title options charSelect and winner screen]
     }
 
 
+    public void setPlayerActive()
+    {
+        for(int i = 1; i<=playerCount; i++)
+            playerNumDisplayer[i].gameObject.SetActive(true);
+    }
+    public void setPlayerUnActive()
+    {
+        for(int i = playerCount + 1; i < gallery.Length; i++)
+            playerNumDisplayer[i].gameObject.SetActive(false);        
+    }
 
     // Start is called before the first frame update
     void Start()
     {
-
+        playerNumDisplayer[3].gameObject.SetActive(false);
+        playerNumDisplayer[4].gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -129,6 +212,10 @@ public class CharacterMangaerSettings : MonoBehaviour
         gameModeExtraSelectTxt.text = gameModeExtraNames[gameModeNum];
         gameModeExtraTxt.text = gameModeExtraNum.ToString();
         
+        for(int i = 1; i<5;i++)                             //Updates the player character choice on UI screen
+        {
+            playerCharDisplayer[i].text = charNames[pChar[i]];
+        }
         
     }
 
@@ -137,10 +224,10 @@ public class CharacterMangaerSettings : MonoBehaviour
         PlayerPrefs.SetInt("stageNumber", stageNumber);
         PlayerPrefs.SetInt("playerCount", playerCount);
 
-        PlayerPrefs.SetInt("p1Char", p1Char);
-        PlayerPrefs.SetInt("p2Char", p2Char);
-        PlayerPrefs.SetInt("p3Char", p3Char);
-        PlayerPrefs.SetInt("p4Char", p4Char);
+        PlayerPrefs.SetInt("p1Char", pChar[1]);
+        PlayerPrefs.SetInt("p2Char", pChar[2]);
+        PlayerPrefs.SetInt("p3Char", pChar[3]);
+        PlayerPrefs.SetInt("p4Char", pChar[4]);
         
         if(gameModeNum == 0)
         {
