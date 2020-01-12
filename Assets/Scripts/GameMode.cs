@@ -31,9 +31,23 @@ public class GameMode : MonoBehaviour
         //if(gmn == 0 ) then update stuff
     }
 
+    public int subStock(int playerNum)
+    {
+        pStocks[playerNum] = pStocks[playerNum] - 1;
+        return pStocks[playerNum];
+    }
+    public int checkStock(int playerNum)
+    {
+        return pStocks[playerNum];
+    }
+
     // Update is called once per frame
     void Update()
     {
+        if(GameModeNum == 0)
+        {
+
+        }
         
     }
 }

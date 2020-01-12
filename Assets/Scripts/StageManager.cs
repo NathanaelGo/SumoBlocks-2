@@ -27,8 +27,8 @@ public class StageManager : MonoBehaviour
 
      
     [Header("Other")]  
-    public string[] pMoveKeys = new string[5];          //Fill and slpit the keys and use it in revive                               iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
-
+    public string[] pMoveKeys = new string[5];
+    //public GameMode GameModeScript;
 
 
     //Script holders for player Movement
@@ -38,6 +38,8 @@ public class StageManager : MonoBehaviour
 
     void Start()
     {
+
+        //GameModeScript = this.GetComponent<GameMode>();
         //Pulling Information from the Player pref void
         stageNumber = PlayerPrefs.GetInt("stageNumber", 0);
         playerCount = PlayerPrefs.GetInt("playerCount", 0);
@@ -92,6 +94,8 @@ public class StageManager : MonoBehaviour
         pm[playerNum] = p[playerNum].GetComponent<PlayerMovement>();                                        //Fetches the new playermovement script
         pm[playerNum].setControl(pMoveKeys[playerNum]);                                                     //Readds the new movement 
         p[playerNum].GetComponent<Renderer>().material = pMat[playerNum];                                   //Readds Color
+
+
     }
     
 
@@ -100,11 +104,10 @@ public class StageManager : MonoBehaviour
     {
         for(int i = 1; i<=4; i++)
         {
-            if(p[i].transform.position.y<-10)
+            /*if(p[i].transform.position.y<-10)
             {
-                Debug.Log("It Workos");
                 revive(i);
-            }
+            }*/
         }
     }
 }
