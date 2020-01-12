@@ -15,6 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/CharSelect.unity
     guid: 791bd9ea97812bc49a0bb347ac7cfd1f
   - enabled: 1
+    path: Assets/Scenes/Victory Screen.unity
+    guid: 1586cb1239c6c854185e7e39e9d238ca
+  - enabled: 1
     path: Assets/Scenes/Stage1.unity
     guid: 50ca8c67a5430ac418859efa391f606c
   m_configObjects: {}
