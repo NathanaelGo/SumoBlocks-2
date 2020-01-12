@@ -60,7 +60,7 @@ public class StageManager : MonoBehaviour
 
         pMoveKeys[1] = "w a d s e q";
         pMoveKeys[2] = "up left right down , .";
-        pMoveKeys[3] = "g v n b h f";
+        pMoveKeys[3] = "f c b v g d";
         pMoveKeys[4] = "u h k j i y";
         
 
