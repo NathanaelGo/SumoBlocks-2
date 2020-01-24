@@ -25,16 +25,16 @@ public class StageManager : MonoBehaviour
 
      
     [Header("Other")]  
-<<<<<<< HEAD
-    public string[] pMoveKeys = new string[5];
+//<<<<<<< HEAD
+    //public string[] pMoveKeys = new string[5];
     //public GameMode GameModeScript;
 
 
-=======
+//=======
     public string[] pMoveKeys = new string[5];          //Fill and slpit the keys and use it in revive                            
     public GameObject stageMangager;                    //Stage Manager Object
     public GameMode gmScript;                           //GameMode Script
->>>>>>> 066be36a5d6bd9f91e0395ce286fefcb88db0f76
+//>>>>>>> 066be36a5d6bd9f91e0395ce286fefcb88db0f76
     //Script holders for player Movement
     private PlayerMovement[] pm = new PlayerMovement[5];  //Player movement scripts                                 Note Slot Zero is unused
 
@@ -43,12 +43,12 @@ public class StageManager : MonoBehaviour
     void Start()
     {
 
-<<<<<<< HEAD
+//<<<<<<< HEAD
         //GameModeScript = this.GetComponent<GameMode>();
-=======
+///=======
         stageMangager = gameObject;
         gmScript = stageMangager.GetComponent<GameMode>();
->>>>>>> 066be36a5d6bd9f91e0395ce286fefcb88db0f76
+//>>>>>>> 066be36a5d6bd9f91e0395ce286fefcb88db0f76
         //Pulling Information from the Player pref void
         stageNumber = PlayerPrefs.GetInt("stageNumber", 0);
         playerCount = PlayerPrefs.GetInt("playerCount", 0);
@@ -118,12 +118,12 @@ public class StageManager : MonoBehaviour
     {
         for(int i = 1; i<=4; i++)
         {
-<<<<<<< HEAD
+//<<<<<<< HEAD
             /*if(p[i].transform.position.y<-10)
             {
                 revive(i);
             }*/
-=======
+//=======
             if(!(p[i]==null) && p[i].transform.position.y<-10)
             {
                 if(gmScript.CharDestroyed(i))                       //Checks to see if it need to revive (handled by the gamemode script)
@@ -131,7 +131,7 @@ public class StageManager : MonoBehaviour
                 else
                     Destroy(p[i]);
             }
->>>>>>> 066be36a5d6bd9f91e0395ce286fefcb88db0f76
+//>>>>>>> 066be36a5d6bd9f91e0395ce286fefcb88db0f76
         }
     }
 }
